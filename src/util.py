@@ -176,10 +176,6 @@ def video_reading (model, video, dir_path):
             else:
                 label_string = 'fall'
 
-            cv2.putText(frame, label_string, (10, 205),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7,
-                        (138, 43, 226), 2)
-
             cv2.putText(frame, "fall Prob: %.4f" % probs[0][0], (10, 230),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7,
                         (138, 43, 226), 2)
