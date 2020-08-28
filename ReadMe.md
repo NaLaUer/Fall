@@ -19,7 +19,7 @@
 &emsp;&emsp;使用的Le2i Fall detection Dataset视频数据中，只有部分视频具有跌倒动作，具体数据形式在[这里](https://www.yuque.com/nalaeur/bstyo8/pyacvh)，将原始数据存放在root_dir文件夹中，数据预处理阶段，将视频数据按照clip_len大小的滑窗连续采样切分为图片，处理后数据存储在output_dir文件夹中，这个过程只运行现一次。<br>
 &emsp;&emsp;原始数据存储的格式为:<br>
 ```
-Le2i
+root_dir
 |_ Coffee_room_02
 |  |_ [Videos]
 |  |  |_ video (49).avi
