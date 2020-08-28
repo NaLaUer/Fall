@@ -18,11 +18,18 @@
 ### 2. 数据预处理
 &emsp;&emsp;使用的Le2i Fall detection Dataset视频数据中，只有部分视频具有跌倒动作，具体数据形式在[这里](https://www.yuque.com/nalaeur/bstyo8/pyacvh)，将原始数据存放在root_dir文件夹中，数据预处理阶段，将视频数据按照clip_len大小的滑窗连续采样切分为图片，处理后数据存储在output_dir文件夹中，这个过程只运行现一次。<br>
 &emsp;&emsp;原始数据存储的格式为:<br>
-- input_dir
-  + --video_names
-    * --Videos
-    * --Annotation_files
-  + --video_names
+```
+Le2i
+|_ Coffee_room_02
+|  |_ [Videos]
+|  |  |_ video (49).avi
+|  |  |_ video (50).avi
+|  |  |_ ...
+|  |_ [Annotation_files]
+|     |_ video (49).txt
+|     |_ video (50).txt
+|     |_ ...
+```
 
 ### 3. LRCN 模型概述
 ![结构](img/结构.png)
@@ -33,17 +40,16 @@
 
 ### 4. 训练模型
 ```
-    python script/train.py  --root_dir XXXXX \          # 原始视频数据
-                            --out_dir  XXXXX \          # 预处理文件保存
-                            --save_dir XXXXX \          # 模型保存地址
-                            --clip_len  X                # 滑动窗口大小
+    python script/train.py  --root_dir /hdd01/lc/Le2i/Video \          # 原始视频数据
+                            --out_dir  /hdd01/lc/Le2i/Video_split \    # 预处理文件保存
+                            --save_dir /hdd01/lc/fall/save \           # 模型保存地址
+                            --clip_len  4                              # 滑动窗口大小
 ```
-
 
 ### 5. 验证模型
 ```
-    python script/inference.py  --checkpoint  xxxx \   # 保存的模型 
-                                --input  XXXXX \       # 测试的文件
+    python script/inference.py  --checkpoint  /save/Le2i_epoch-45.pth.tar \   # 保存的模型 
+                                --input  /demo/input.mp4 \                    # 测试的文件
 ```
 &emsp;&emsp;最终在GPU所得fps = 20，CPU所得fps=20
 
