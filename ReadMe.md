@@ -49,7 +49,7 @@ Le2i
 ### 5. 验证模型
 ```
     python script/inference.py  --checkpoint  /save/Le2i_epoch-45.pth.tar \   # 保存的模型 
-                                --input  /demo/input.mp4 \                    # 测试的文件
+                                --input  /demo/input.mp4                     # 测试的文件
 ```
 &emsp;&emsp;最终在GPU所得fps = 20，CPU所得fps=20
 
