@@ -24,9 +24,8 @@
     * --Annotation_files
   + --video_names
 
-
 ### 3. LRCN 模型概述
-![结构](img/2.png)
+![结构](img/结构.png)
 - LCRN模型可以实现视频中人的跌倒动作识别。<br>
 - 视频帧由预先训练的ResNet18提取图像特征，随后使用双向LSTM层处理，并在LSTM层输出结果，该模型实现了CNN+LSTM框架,训练好的模型将保存在save_dir中。
 - 网络输入的是呈现人类活动的视频一小段，输出的是跌倒的概率向量。
